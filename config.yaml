@@ -1,0 +1,89 @@
+# Configuration for Edge AI Object Detection Experiment
+# Raspberry Pi 4 - Lightweight CNN Evaluation
+
+hardware:
+  device: "raspberry_pi_4"
+  ram_gb: 4
+  camera: "picamera_v2"  # Options: "picamera_v2", "usb_webcam"
+  camera_resolution: [640, 480]  # Width, Height
+  fallback_resolution: [320, 240]  # For faster inference
+
+models:
+  mobilenet:
+    input_size: [224, 224]
+    weights: "imagenet"
+    alpha: 1.0  # Width multiplier
+    tflite_path: "models/mobilenet_v2.tflite"
+  
+  squeezenet:
+    input_size: [227, 227]
+    weights: "imagenet"
+    tflite_path: "models/squeezenet.tflite"
+  
+  yolo:
+    input_size: [416, 416]
+    confidence_threshold: 0.5
+    nms_threshold: 0.4
+    weights_path: "models/yolov4-tiny.weights"
+    config_path: "models/yolov4-tiny.cfg"
+    names_path: "models/coco.names"
+
+optimizations:
+  quantization:
+    precision: "int8"  # Options: "int8", "float16"
+    representative_dataset: "datasets/cifar10"
+  
+  pruning:
+    sparsity: 0.5  # 50% sparsity
+    block_size: [1, 4]
+  
+  combined:
+    apply_order: ["pruning", "quantization"]  # Prune first, then quantize
+
+evaluation:
+  fps_duration: 5  # Seconds to measure FPS
+  latency_runs: 100  # Number of inference runs for latency measurement
+  datasets:
+    - "pascal_voc"
+    - "cifar10"
+  batch_size: 32
+  num_test_samples: 1000
+
+datasets:
+  pascal_voc:
+    url: "http://host.robots.ox.ac.uk/pascal/VOC/voc2012/VOCtrainval_11-May-2012.tar"
+    path: "datasets/pascal_voc"
+    classes: 20
+  
+  cifar10:
+    path: "datasets/cifar10"
+    classes: 10
+    download: true
+
+output:
+  base_dir: "output"
+  csv_dir: "output/csv"
+  graphs_dir: "output/graphs"
+  images_dir: "output/images"
+  logs_dir: "output/logs"
+  save_csv: true
+  save_graphs: true
+  save_images: true
+  csv_filename: "experiment_results.csv"
+
+logging:
+  level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+  format: "[%(asctime)s] %(levelname)s %(message)s"
+  file: "output/logs/experiment.log"
+
+experiment:
+  models_to_test:
+    - "mobilenet"
+    - "squeezenet"
+    - "yolo"
+  
+  optimizations_to_test:
+    - "baseline"
+    - "quantization"
+    - "pruning"
+    - "combined"

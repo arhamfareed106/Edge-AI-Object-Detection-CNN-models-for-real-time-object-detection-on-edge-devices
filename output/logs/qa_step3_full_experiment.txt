@@ -1,0 +1,945 @@
+======================================================================
+Edge AI Object Detection Experiment
+Raspberry Pi 4 - Lightweight CNN Evaluation
+======================================================================
+
+[2026-04-11 06:16:42,481] INFO Running full experiment suite
+[2026-04-11 06:16:42,485] INFO ModelLoader initialized with directory: models
+[2026-04-11 06:16:42,486] INFO ModelOptimizer initialized with output directory: models/optimized
+[2026-04-11 06:16:42,486] INFO HardwareMonitor initialized with interval 0.10s
+[2026-04-11 06:16:42,487] INFO ModelEvaluator initialized
+[2026-04-11 06:16:42,487] INFO ExperimentRunner initialized
+[2026-04-11 06:16:42,487] INFO Models: ['mobilenet', 'squeezenet', 'yolo']
+[2026-04-11 06:16:42,493] INFO Optimizations: ['baseline', 'quantization', 'pruning', 'combined']
+[2026-04-11 06:16:42,493] INFO ======================================================================
+[2026-04-11 06:16:42,494] INFO FULL EXPERIMENT SUITE
+[2026-04-11 06:16:42,494] INFO Models: ['mobilenet', 'squeezenet', 'yolo']
+[2026-04-11 06:16:42,494] INFO Optimizations: ['baseline', 'quantization', 'pruning', 'combined']
+[2026-04-11 06:16:42,495] INFO Total experiments: 12
+[2026-04-11 06:16:42,496] INFO ======================================================================
+
+Models:   0%|          | 0/3 [00:00<?, ?it/s]
+
+[2026-04-11 06:16:42,610] INFO 
+Experiment 1/12
+[2026-04-11 06:16:42,612] INFO ======================================================================
+[2026-04-11 06:16:42,612] INFO EXPERIMENT: MOBILENET + BASELINE
+[2026-04-11 06:16:42,613] INFO ======================================================================
+[2026-04-11 06:16:42,613] INFO [Step 1/4] Loading mobilenet model...
+[2026-04-11 06:16:42,614] INFO Loading MobileNetV2 from: models\mobilenet_v2.tflite
+mobilenet optimizations:   0%|          | 0/4 [00:00<?, ?it/s][A2026-04-11 06:16:43.636517: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-04-11 06:17:28.416568: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+[2026-04-11 06:17:31,186] INFO Using tensorflow.lite
+C:\Users\dell\AppData\Local\Programs\Python\Python313\Lib\site-packages\tensorflow\lite\python\interpreter.py:457: UserWarning:     Warning: tf.lite.Interpreter is deprecated and is scheduled for deletion in
+    TF 2.20. Please use the LiteRT interpreter from the ai_edge_litert package.
+    See the [migration guide](https://ai.google.dev/edge/litert/migration)
+    for details.
+    
+  warnings.warn(_INTERPRETER_DELETION_WARNING)
+INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+[2026-04-11 06:17:31,444] INFO TFLite model loaded: models\mobilenet_v2.tflite
+[2026-04-11 06:17:31,445] INFO MobileNetV2 TFLite model loaded successfully
+[2026-04-11 06:17:31,446] INFO [Step 2/4] Applying baseline optimization...
+[2026-04-11 06:17:31,446] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:17:31,446] INFO ============================================================
+[2026-04-11 06:17:31,446] INFO Running full benchmark: mobilenet (baseline)
+[2026-04-11 06:17:31,447] INFO ============================================================
+[2026-04-11 06:17:31,447] INFO [1/5] Measuring FPS...
+[2026-04-11 06:17:31,447] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:17:36,448] INFO FPS: 126.39 (632 frames in 5.00 seconds)
+[2026-04-11 06:17:36,449] INFO [2/5] Measuring latency...
+[2026-04-11 06:17:36,449] INFO Measuring latency over 100 runs...
+
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:   9%|9         | 9/100 [00:00<00:01, 83.11it/s][A[A
+
+
+Latency Measurement:  18%|#8        | 18/100 [00:00<00:01, 54.67it/s][A[A
+
+
+Latency Measurement:  25%|##5       | 25/100 [00:00<00:01, 53.80it/s][A[A
+
+
+Latency Measurement:  31%|###1      | 31/100 [00:00<00:01, 50.47it/s][A[A
+
+
+Latency Measurement:  37%|###7      | 37/100 [00:00<00:01, 50.76it/s][A[A
+
+
+Latency Measurement:  44%|####4     | 44/100 [00:00<00:00, 56.07it/s][A[A
+
+
+Latency Measurement:  50%|#####     | 50/100 [00:00<00:00, 56.94it/s][A[A
+
+
+Latency Measurement:  58%|#####8    | 58/100 [00:01<00:00, 62.13it/s][A[A
+
+
+Latency Measurement:  69%|######9   | 69/100 [00:01<00:00, 74.65it/s][A[A
+
+
+Latency Measurement:  77%|#######7  | 77/100 [00:01<00:00, 72.92it/s][A[A
+
+
+Latency Measurement:  85%|########5 | 85/100 [00:01<00:00, 71.54it/s][A[A
+
+
+Latency Measurement:  93%|#########3| 93/100 [00:01<00:00, 73.15it/s][A[A
+
+[2026-04-11 06:17:38,004] INFO Latency: 15.20 � 11.24 ms
+[2026-04-11 06:17:38,005] INFO [3/5] Calculating mAP...
+[2026-04-11 06:17:38,005] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:17:38,006] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:17:38,006] INFO [4/5] Getting model size...
+[2026-04-11 06:17:38,006] WARNING Model file not found: models/mobilenet.tflite
+[2026-04-11 06:17:38,007] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:17:38,007] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:17:38,007] INFO Hardware monitoring started
+
+[2026-04-11 06:17:39,050] INFO Hardware monitoring stopped after 1.04 seconds
+[2026-04-11 06:17:39,051] WARNING No measurements available
+[2026-04-11 06:17:39,051] INFO Energy consumption: 5.22 Joules (1.04 seconds, 5.00 Watts)
+[2026-04-11 06:17:39,051] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:17:39,052] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:17:39,052] INFO Hardware monitoring started
+[2026-04-11 06:17:39,092] WARNING Temperature reading unavailable
+[2026-04-11 06:17:39,362] WARNING Temperature reading unavailable
+[2026-04-11 06:17:39,532] WARNING Temperature reading unavailable
+[2026-04-11 06:17:39,727] WARNING Temperature reading unavailable
+[2026-04-11 06:17:40,027] WARNING Temperature reading unavailable
+[2026-04-11 06:17:40,199] WARNING Temperature reading unavailable
+[2026-04-11 06:17:40,502] WARNING Temperature reading unavailable
+[2026-04-11 06:17:40,767] WARNING Temperature reading unavailable
+[2026-04-11 06:17:40,922] WARNING Temperature reading unavailable
+[2026-04-11 06:17:41,208] WARNING Temperature reading unavailable
+[2026-04-11 06:17:42,374] INFO Hardware monitoring stopped after 3.32 seconds
+[2026-04-11 06:17:42,375] INFO Collected 10 measurements
+[2026-04-11 06:17:42,375] INFO ------------------------------------------------------------
+[2026-04-11 06:17:42,376] INFO Benchmark Results:
+[2026-04-11 06:17:42,376] INFO   FPS: 126.39
+[2026-04-11 06:17:42,376] INFO   Latency: 15.20 � 11.24 ms
+[2026-04-11 06:17:42,377] INFO   mAP: 0.720
+[2026-04-11 06:17:42,377] INFO   Model Size: 0.00 MB
+[2026-04-11 06:17:42,377] INFO   Energy: 5.22 Joules
+[2026-04-11 06:17:42,377] INFO   CPU: 100.0% | RAM: 9646.2 MB
+[2026-04-11 06:17:42,378] INFO ------------------------------------------------------------
+[2026-04-11 06:17:42,378] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:17:42,378] INFO ======================================================================
+[2026-04-11 06:17:42,378] INFO EXPERIMENT COMPLETE: mobilenet + baseline
+[2026-04-11 06:17:42,379] INFO   FPS: 126.39 | Latency: 15.20 ms | mAP: 0.720
+[2026-04-11 06:17:42,379] INFO ======================================================================
+                                                                     [A[A
+
+[2026-04-11 06:17:42,380] INFO 
+Experiment 2/12
+[2026-04-11 06:17:42,380] INFO ======================================================================
+[2026-04-11 06:17:42,381] INFO EXPERIMENT: MOBILENET + QUANTIZATION
+[2026-04-11 06:17:42,381] INFO ======================================================================
+[2026-04-11 06:17:42,387] INFO [Step 1/4] Loading mobilenet model...
+[2026-04-11 06:17:42,389] INFO Using cached MobileNetV2 model
+[2026-04-11 06:17:42,390] INFO [Step 2/4] Applying quantization optimization...
+[2026-04-11 06:17:42,390] INFO Applying int8 quantization to: models/mobilenet.tflite
+[2026-04-11 06:17:42,391] ERROR Model file not found: models/mobilenet.tflite
+[2026-04-11 06:17:42,391] WARNING Quantization failed (Model not found: models/mobilenet.tflite), using baseline
+[2026-04-11 06:17:42,391] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:17:42,392] INFO ============================================================
+[2026-04-11 06:17:42,393] INFO Running full benchmark: mobilenet (quantization)
+[2026-04-11 06:17:42,393] INFO ============================================================
+[2026-04-11 06:17:42,394] INFO [1/5] Measuring FPS...
+[2026-04-11 06:17:42,394] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:17:47,400] INFO FPS: 57.53 (288 frames in 5.01 seconds)
+[2026-04-11 06:17:47,401] INFO [2/5] Measuring latency...
+[2026-04-11 06:17:47,401] INFO Measuring latency over 100 runs...
+mobilenet optimizations:  25%|##5       | 1/4 [00:59<02:59, 59.77s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:  13%|#3        | 13/100 [00:00<00:00, 125.77it/s][A[A
+
+
+Latency Measurement:  26%|##6       | 26/100 [00:00<00:00, 78.17it/s] [A[A
+
+
+Latency Measurement:  35%|###5      | 35/100 [00:00<00:00, 80.02it/s][A[A
+
+
+Latency Measurement:  44%|####4     | 44/100 [00:00<00:00, 80.86it/s][A[A
+
+
+Latency Measurement:  54%|#####4    | 54/100 [00:00<00:00, 84.41it/s][A[A
+
+
+Latency Measurement:  63%|######3   | 63/100 [00:00<00:00, 81.85it/s][A[A
+
+
+Latency Measurement:  72%|#######2  | 72/100 [00:00<00:00, 70.93it/s][A[A
+
+
+Latency Measurement:  80%|########  | 80/100 [00:01<00:00, 70.78it/s][A[A
+
+
+Latency Measurement:  88%|########8 | 88/100 [00:01<00:00, 67.10it/s][A[A
+
+
+Latency Measurement:  96%|#########6| 96/100 [00:01<00:00, 69.69it/s][A[A
+
+
+[2026-04-11 06:17:48,847] INFO Latency: 13.96 � 15.11 ms
+[2026-04-11 06:17:48,847] INFO [3/5] Calculating mAP...
+[2026-04-11 06:17:48,848] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:17:48,857] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:17:48,858] INFO [4/5] Getting model size...
+[2026-04-11 06:17:48,858] WARNING Model file not found: models/mobilenet.tflite
+[2026-04-11 06:17:48,859] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:17:48,859] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:17:48,859] INFO Hardware monitoring started
+[2026-04-11 06:17:50,137] INFO Hardware monitoring stopped after 1.28 seconds
+[2026-04-11 06:17:50,137] WARNING No measurements available
+[2026-04-11 06:17:50,149] INFO Energy consumption: 6.39 Joules (1.28 seconds, 5.00 Watts)
+[2026-04-11 06:17:50,150] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:17:50,150] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:17:50,151] INFO Hardware monitoring started
+[2026-04-11 06:17:50,170] WARNING Temperature reading unavailable
+[2026-04-11 06:17:50,822] WARNING Temperature reading unavailable
+[2026-04-11 06:17:51,790] WARNING Temperature reading unavailable
+[2026-04-11 06:17:52,263] WARNING Temperature reading unavailable
+[2026-04-11 06:17:52,709] WARNING Temperature reading unavailable
+[2026-04-11 06:17:52,933] WARNING Temperature reading unavailable
+[2026-04-11 06:17:53,303] INFO Hardware monitoring stopped after 3.15 seconds
+[2026-04-11 06:17:53,304] INFO Collected 6 measurements
+[2026-04-11 06:17:53,304] INFO ------------------------------------------------------------
+[2026-04-11 06:17:53,304] INFO Benchmark Results:
+[2026-04-11 06:17:53,304] INFO   FPS: 57.53
+[2026-04-11 06:17:53,320] INFO   Latency: 13.96 � 15.11 ms
+[2026-04-11 06:17:53,321] INFO   mAP: 0.720
+[2026-04-11 06:17:53,333] INFO   Model Size: 0.00 MB
+[2026-04-11 06:17:53,333] INFO   Energy: 6.39 Joules
+[2026-04-11 06:17:53,334] INFO   CPU: 100.0% | RAM: 9701.2 MB
+[2026-04-11 06:17:53,334] INFO ------------------------------------------------------------
+[2026-04-11 06:17:53,334] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:17:53,335] INFO ======================================================================
+[2026-04-11 06:17:53,335] INFO EXPERIMENT COMPLETE: mobilenet + quantization
+[2026-04-11 06:17:53,335] INFO   FPS: 57.53 | Latency: 13.96 ms | mAP: 0.720
+[2026-04-11 06:17:53,335] INFO ======================================================================
+                                                                     [A[A
+
+[2026-04-11 06:17:53,336] INFO 
+Experiment 3/12
+[2026-04-11 06:17:53,336] INFO ======================================================================
+[2026-04-11 06:17:53,336] INFO EXPERIMENT: MOBILENET + PRUNING
+[2026-04-11 06:17:53,337] INFO ======================================================================
+[2026-04-11 06:17:53,337] INFO [Step 1/4] Loading mobilenet model...
+[2026-04-11 06:17:53,337] INFO Using cached MobileNetV2 model
+[2026-04-11 06:17:53,349] INFO [Step 2/4] Applying pruning optimization...
+[2026-04-11 06:17:53,349] INFO Applying structured pruning with 50.0% sparsity
+[2026-04-11 06:17:53,354] ERROR tensorflow-model-optimization not installed
+[2026-04-11 06:17:53,354] INFO Install with: pip install tensorflow-model-optimization
+[2026-04-11 06:17:53,354] WARNING Pruning failed (No module named 'tensorflow_model_optimization'), using baseline
+[2026-04-11 06:17:53,367] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:17:53,368] INFO ============================================================
+[2026-04-11 06:17:53,368] INFO Running full benchmark: mobilenet (pruning)
+[2026-04-11 06:17:53,368] INFO ============================================================
+[2026-04-11 06:17:53,369] INFO [1/5] Measuring FPS...
+[2026-04-11 06:17:53,369] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:17:58,377] INFO FPS: 40.95 (205 frames in 5.01 seconds)
+[2026-04-11 06:17:58,377] INFO [2/5] Measuring latency...
+[2026-04-11 06:17:58,378] INFO Measuring latency over 100 runs...
+mobilenet optimizations:  50%|#####     | 2/4 [01:10<01:02, 31.06s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:   3%|3         | 3/100 [00:00<00:03, 26.63it/s][A[A
+
+
+Latency Measurement:   8%|8         | 8/100 [00:00<00:02, 37.57it/s][A[A
+
+
+Latency Measurement:  14%|#4        | 14/100 [00:00<00:02, 40.78it/s][A[A
+
+
+Latency Measurement:  19%|#9        | 19/100 [00:00<00:01, 43.02it/s][A[A
+
+
+Latency Measurement:  26%|##6       | 26/100 [00:00<00:01, 51.43it/s][A[A
+
+
+Latency Measurement:  32%|###2      | 32/100 [00:00<00:01, 51.46it/s][A[A
+
+
+Latency Measurement:  39%|###9      | 39/100 [00:00<00:01, 56.85it/s][A[A
+
+
+Latency Measurement:  47%|####6     | 47/100 [00:00<00:00, 63.58it/s][A[A
+
+
+Latency Measurement:  54%|#####4    | 54/100 [00:01<00:00, 54.96it/s][A[A
+
+
+Latency Measurement:  60%|######    | 60/100 [00:01<00:00, 51.74it/s][A[A
+
+
+Latency Measurement:  66%|######6   | 66/100 [00:01<00:00, 53.32it/s][A[A
+
+
+Latency Measurement:  72%|#######2  | 72/100 [00:01<00:00, 49.26it/s][A[A
+
+
+Latency Measurement:  78%|#######8  | 78/100 [00:01<00:00, 35.08it/s][A[A
+
+
+Latency Measurement:  84%|########4 | 84/100 [00:01<00:00, 31.53it/s][A[A
+
+
+Latency Measurement:  91%|#########1| 91/100 [00:02<00:00, 34.52it/s][A[A
+
+
+Latency Measurement:  98%|#########8| 98/100 [00:02<00:00, 37.44it/s][A[A
+
+
+[2026-04-11 06:18:00,676] INFO Latency: 22.77 � 25.17 ms
+[2026-04-11 06:18:00,683] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:00,683] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:00,684] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:00,685] INFO [4/5] Getting model size...
+[2026-04-11 06:18:00,685] WARNING Model file not found: models/mobilenet.h5
+[2026-04-11 06:18:00,688] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:00,689] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:00,689] INFO Hardware monitoring started
+[2026-04-11 06:18:01,829] INFO Hardware monitoring stopped after 1.14 seconds
+[2026-04-11 06:18:01,862] WARNING No measurements available
+[2026-04-11 06:18:01,862] INFO Energy consumption: 5.87 Joules (1.17 seconds, 5.00 Watts)
+[2026-04-11 06:18:01,863] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:01,863] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:01,863] INFO Hardware monitoring started
+[2026-04-11 06:18:01,876] WARNING Temperature reading unavailable
+[2026-04-11 06:18:02,584] WARNING Temperature reading unavailable
+[2026-04-11 06:18:04,376] WARNING Temperature reading unavailable
+[2026-04-11 06:18:04,610] WARNING Temperature reading unavailable
+[2026-04-11 06:18:05,061] INFO Hardware monitoring stopped after 3.20 seconds
+[2026-04-11 06:18:05,061] INFO Collected 4 measurements
+[2026-04-11 06:18:05,061] INFO ------------------------------------------------------------
+[2026-04-11 06:18:05,062] INFO Benchmark Results:
+[2026-04-11 06:18:05,062] INFO   FPS: 40.95
+[2026-04-11 06:18:05,064] INFO   Latency: 22.77 � 25.17 ms
+[2026-04-11 06:18:05,065] INFO   mAP: 0.720
+[2026-04-11 06:18:05,075] INFO   Model Size: 0.00 MB
+[2026-04-11 06:18:05,076] INFO   Energy: 5.87 Joules
+[2026-04-11 06:18:05,076] INFO   CPU: 100.0% | RAM: 9796.0 MB
+[2026-04-11 06:18:05,076] INFO ------------------------------------------------------------
+[2026-04-11 06:18:05,076] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:05,077] INFO ======================================================================
+[2026-04-11 06:18:05,077] INFO EXPERIMENT COMPLETE: mobilenet + pruning
+[2026-04-11 06:18:05,077] INFO   FPS: 40.95 | Latency: 22.77 ms | mAP: 0.720
+[2026-04-11 06:18:05,077] INFO ======================================================================
+[2026-04-11 06:18:05,363] INFO Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:05,364] INFO Intermediate results saved
+                                                                     [A[A
+
+[2026-04-11 06:18:05,365] INFO 
+Experiment 4/12
+[2026-04-11 06:18:05,365] INFO ======================================================================
+[2026-04-11 06:18:05,366] INFO EXPERIMENT: MOBILENET + COMBINED
+[2026-04-11 06:18:05,366] INFO ======================================================================
+[2026-04-11 06:18:05,366] INFO [Step 1/4] Loading mobilenet model...
+[2026-04-11 06:18:05,366] INFO Using cached MobileNetV2 model
+[2026-04-11 06:18:05,367] INFO [Step 2/4] Applying combined optimization...
+[2026-04-11 06:18:05,367] INFO Applying combined optimization (pruning + quantization)
+[2026-04-11 06:18:05,377] INFO Step 1: Loading model from models/mobilenet.h5
+[2026-04-11 06:18:05,394] WARNING Combined optimization failed ([Errno 2] Unable to synchronously open file (unable to open file: name = 'models/mobilenet.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)), using baseline
+[2026-04-11 06:18:05,395] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:18:05,397] INFO ============================================================
+[2026-04-11 06:18:05,397] INFO Running full benchmark: mobilenet (combined)
+[2026-04-11 06:18:05,397] INFO ============================================================
+[2026-04-11 06:18:05,397] INFO [1/5] Measuring FPS...
+[2026-04-11 06:18:05,398] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:18:10,421] INFO FPS: 50.77 (255 frames in 5.02 seconds)
+[2026-04-11 06:18:10,421] INFO [2/5] Measuring latency...
+[2026-04-11 06:18:10,422] INFO Measuring latency over 100 runs...
+mobilenet optimizations:  75%|#######5  | 3/4 [01:22<00:22, 22.37s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:   3%|3         | 3/100 [00:00<00:03, 28.75it/s][A[A
+
+
+Latency Measurement:   9%|9         | 9/100 [00:00<00:02, 45.23it/s][A[A
+
+
+Latency Measurement:  15%|#5        | 15/100 [00:00<00:02, 41.88it/s][A[A
+
+
+Latency Measurement:  23%|##3       | 23/100 [00:00<00:01, 53.92it/s][A[A
+
+
+Latency Measurement:  29%|##9       | 29/100 [00:00<00:01, 49.84it/s][A[A
+
+
+Latency Measurement:  39%|###9      | 39/100 [00:00<00:00, 62.26it/s][A[A
+
+
+Latency Measurement:  46%|####6     | 46/100 [00:00<00:00, 63.53it/s][A[A
+
+
+Latency Measurement:  53%|#####3    | 53/100 [00:01<00:00, 53.09it/s][A[A
+
+
+Latency Measurement:  59%|#####8    | 59/100 [00:01<00:01, 37.32it/s][A[A
+
+
+Latency Measurement:  64%|######4   | 64/100 [00:01<00:00, 37.18it/s][A[A
+
+
+Latency Measurement:  69%|######9   | 69/100 [00:01<00:00, 38.51it/s][A[A
+
+
+Latency Measurement:  74%|#######4  | 74/100 [00:01<00:00, 37.14it/s][A[A
+
+
+Latency Measurement:  80%|########  | 80/100 [00:01<00:00, 41.85it/s][A[A
+
+
+Latency Measurement:  85%|########5 | 85/100 [00:01<00:00, 43.73it/s][A[A
+
+
+Latency Measurement:  91%|#########1| 91/100 [00:02<00:00, 45.97it/s][A[A
+
+
+Latency Measurement:  96%|#########6| 96/100 [00:02<00:00, 43.49it/s][A[A
+
+
+[2026-04-11 06:18:12,604] INFO Latency: 21.63 � 26.71 ms
+[2026-04-11 06:18:12,614] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:12,615] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:12,615] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:12,615] INFO [4/5] Getting model size...
+[2026-04-11 06:18:12,616] WARNING Model file not found: models/mobilenet.h5
+[2026-04-11 06:18:12,616] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:12,617] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:12,617] INFO Hardware monitoring started
+[2026-04-11 06:18:14,044] INFO Hardware monitoring stopped after 1.43 seconds
+[2026-04-11 06:18:14,044] WARNING No measurements available
+[2026-04-11 06:18:14,045] INFO Energy consumption: 7.14 Joules (1.43 seconds, 5.00 Watts)
+[2026-04-11 06:18:14,045] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:14,056] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:14,057] INFO Hardware monitoring started
+[2026-04-11 06:18:14,110] WARNING Temperature reading unavailable
+[2026-04-11 06:18:14,765] WARNING Temperature reading unavailable
+[2026-04-11 06:18:15,132] WARNING Temperature reading unavailable
+[2026-04-11 06:18:15,299] WARNING Temperature reading unavailable
+[2026-04-11 06:18:15,531] WARNING Temperature reading unavailable
+[2026-04-11 06:18:15,683] WARNING Temperature reading unavailable
+[2026-04-11 06:18:15,935] WARNING Temperature reading unavailable
+[2026-04-11 06:18:16,105] WARNING Temperature reading unavailable
+[2026-04-11 06:18:16,340] WARNING Temperature reading unavailable
+[2026-04-11 06:18:16,536] WARNING Temperature reading unavailable
+[2026-04-11 06:18:16,704] WARNING Temperature reading unavailable
+[2026-04-11 06:18:16,876] WARNING Temperature reading unavailable
+[2026-04-11 06:18:17,277] INFO Hardware monitoring stopped after 3.22 seconds
+[2026-04-11 06:18:17,277] INFO Collected 12 measurements
+[2026-04-11 06:18:17,278] INFO ------------------------------------------------------------
+[2026-04-11 06:18:17,278] INFO Benchmark Results:
+[2026-04-11 06:18:17,290] INFO   FPS: 50.77
+[2026-04-11 06:18:17,290] INFO   Latency: 21.63 � 26.71 ms
+[2026-04-11 06:18:17,290] INFO   mAP: 0.720
+[2026-04-11 06:18:17,291] INFO   Model Size: 0.00 MB
+[2026-04-11 06:18:17,291] INFO   Energy: 7.14 Joules
+[2026-04-11 06:18:17,292] INFO   CPU: 100.0% | RAM: 9792.9 MB
+[2026-04-11 06:18:17,292] INFO ------------------------------------------------------------
+[2026-04-11 06:18:17,292] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:17,294] INFO ======================================================================
+[2026-04-11 06:18:17,295] INFO EXPERIMENT COMPLETE: mobilenet + combined
+[2026-04-11 06:18:17,295] INFO   FPS: 50.77 | Latency: 21.63 ms | mAP: 0.720
+[2026-04-11 06:18:17,312] INFO ======================================================================
+                                                                     [A[A
+
+mobilenet optimizations: 100%|##########| 4/4 [01:34<00:00, 18.25s/it][A
+
+                                                                      [A
+Models:  33%|###3      | 1/3 [01:34<03:09, 94.72s/it]
+
+[2026-04-11 06:18:17,326] INFO 
+Experiment 5/12
+[2026-04-11 06:18:17,326] INFO ======================================================================
+[2026-04-11 06:18:17,327] INFO EXPERIMENT: SQUEEZENET + BASELINE
+[2026-04-11 06:18:17,327] INFO ======================================================================
+[2026-04-11 06:18:17,327] INFO [Step 1/4] Loading squeezenet model...
+[2026-04-11 06:18:17,328] INFO Loading SqueezeNet from: models\squeezenet.tflite
+[2026-04-11 06:18:17,342] INFO Using tensorflow.lite
+[2026-04-11 06:18:17,409] INFO TFLite model loaded: models\squeezenet.tflite
+[2026-04-11 06:18:17,409] INFO SqueezeNet TFLite model loaded successfully
+[2026-04-11 06:18:17,410] INFO [Step 2/4] Applying baseline optimization...
+[2026-04-11 06:18:17,410] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:18:17,410] INFO ============================================================
+[2026-04-11 06:18:17,410] INFO Running full benchmark: squeezenet (baseline)
+[2026-04-11 06:18:17,411] INFO ============================================================
+[2026-04-11 06:18:17,411] INFO [1/5] Measuring FPS...
+[2026-04-11 06:18:17,411] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:18:22,414] INFO FPS: 92.36 (462 frames in 5.00 seconds)
+[2026-04-11 06:18:22,414] INFO [2/5] Measuring latency...
+[2026-04-11 06:18:22,415] INFO Measuring latency over 100 runs...
+squeezenet optimizations:   0%|          | 0/4 [00:00<?, ?it/s][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:  16%|#6        | 16/100 [00:00<00:00, 156.04it/s][A[A
+
+
+Latency Measurement:  35%|###5      | 35/100 [00:00<00:00, 175.76it/s][A[A
+
+
+Latency Measurement:  53%|#####3    | 53/100 [00:00<00:00, 145.45it/s][A[A
+
+
+Latency Measurement:  69%|######9   | 69/100 [00:00<00:00, 148.73it/s][A[A
+
+
+Latency Measurement:  85%|########5 | 85/100 [00:00<00:00, 114.58it/s][A[A
+
+
+Latency Measurement:  98%|#########8| 98/100 [00:00<00:00, 115.72it/s][A[A
+
+
+[2026-04-11 06:18:23,194] INFO Latency: 7.43 � 8.26 ms
+[2026-04-11 06:18:23,195] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:23,195] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:23,196] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:23,196] INFO [4/5] Getting model size...
+[2026-04-11 06:18:23,197] INFO Model size: 0.15 MB
+[2026-04-11 06:18:23,197] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:23,198] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:23,198] INFO Hardware monitoring started
+[2026-04-11 06:18:23,622] INFO Hardware monitoring stopped after 0.42 seconds
+[2026-04-11 06:18:23,622] WARNING No measurements available
+[2026-04-11 06:18:23,623] INFO Energy consumption: 2.12 Joules (0.42 seconds, 5.00 Watts)
+[2026-04-11 06:18:23,623] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:23,623] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:23,623] INFO Hardware monitoring started
+[2026-04-11 06:18:23,653] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,197] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,358] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,526] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,676] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,824] WARNING Temperature reading unavailable
+[2026-04-11 06:18:24,981] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,150] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,319] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,473] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,634] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,796] WARNING Temperature reading unavailable
+[2026-04-11 06:18:25,957] WARNING Temperature reading unavailable
+[2026-04-11 06:18:26,172] WARNING Temperature reading unavailable
+[2026-04-11 06:18:26,341] WARNING Temperature reading unavailable
+[2026-04-11 06:18:26,569] WARNING Temperature reading unavailable
+[2026-04-11 06:18:26,706] INFO Hardware monitoring stopped after 3.08 seconds
+[2026-04-11 06:18:26,706] INFO Collected 16 measurements
+[2026-04-11 06:18:26,707] INFO ------------------------------------------------------------
+[2026-04-11 06:18:26,707] INFO Benchmark Results:
+[2026-04-11 06:18:26,708] INFO   FPS: 92.36
+[2026-04-11 06:18:26,709] INFO   Latency: 7.43 � 8.26 ms
+[2026-04-11 06:18:26,709] INFO   mAP: 0.720
+[2026-04-11 06:18:26,710] INFO   Model Size: 0.15 MB
+[2026-04-11 06:18:26,710] INFO   Energy: 2.12 Joules
+[2026-04-11 06:18:26,715] INFO   CPU: 92.2% | RAM: 9730.0 MB
+[2026-04-11 06:18:26,717] INFO ------------------------------------------------------------
+[2026-04-11 06:18:26,717] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:26,718] INFO ======================================================================
+[2026-04-11 06:18:26,718] INFO EXPERIMENT COMPLETE: squeezenet + baseline
+[2026-04-11 06:18:26,721] INFO   FPS: 92.36 | Latency: 7.43 ms | mAP: 0.720
+[2026-04-11 06:18:26,721] INFO ======================================================================
+                                                                      [A[A
+
+[2026-04-11 06:18:26,723] INFO 
+Experiment 6/12
+[2026-04-11 06:18:26,724] INFO ======================================================================
+[2026-04-11 06:18:26,724] INFO EXPERIMENT: SQUEEZENET + QUANTIZATION
+[2026-04-11 06:18:26,724] INFO ======================================================================
+[2026-04-11 06:18:26,725] INFO [Step 1/4] Loading squeezenet model...
+[2026-04-11 06:18:26,725] INFO Using cached SqueezeNet model
+[2026-04-11 06:18:26,725] INFO [Step 2/4] Applying quantization optimization...
+[2026-04-11 06:18:26,725] INFO Applying int8 quantization to: models/squeezenet.tflite
+[2026-04-11 06:18:26,737] ERROR Quantization failed: SavedModel file does not exist at: models/squeezenet_saved_model\{saved_model.pbtxt|saved_model.pb}
+[2026-04-11 06:18:26,738] WARNING Quantization failed (SavedModel file does not exist at: models/squeezenet_saved_model\{saved_model.pbtxt|saved_model.pb}), using baseline
+[2026-04-11 06:18:26,740] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:18:26,741] INFO ============================================================
+[2026-04-11 06:18:26,741] INFO Running full benchmark: squeezenet (quantization)
+[2026-04-11 06:18:26,741] INFO ============================================================
+[2026-04-11 06:18:26,741] INFO [1/5] Measuring FPS...
+[2026-04-11 06:18:26,742] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:18:31,749] INFO FPS: 194.31 (973 frames in 5.01 seconds)
+[2026-04-11 06:18:31,750] INFO [2/5] Measuring latency...
+[2026-04-11 06:18:31,750] INFO Measuring latency over 100 runs...
+squeezenet optimizations:  25%|##5       | 1/4 [00:09<00:28,  9.40s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:  18%|#8        | 18/100 [00:00<00:00, 157.47it/s][A[A
+
+
+Latency Measurement:  35%|###5      | 35/100 [00:00<00:00, 163.62it/s][A[A
+
+
+Latency Measurement:  56%|#####6    | 56/100 [00:00<00:00, 183.84it/s][A[A
+
+
+Latency Measurement:  77%|#######7  | 77/100 [00:00<00:00, 191.66it/s][A[A
+
+
+Latency Measurement:  97%|#########7| 97/100 [00:00<00:00, 82.74it/s] [A[A
+
+
+[2026-04-11 06:18:32,764] INFO Latency: 9.51 � 23.25 ms
+[2026-04-11 06:18:32,765] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:32,765] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:32,765] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:32,766] INFO [4/5] Getting model size...
+[2026-04-11 06:18:32,767] INFO Model size: 0.15 MB
+[2026-04-11 06:18:32,767] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:32,768] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:32,769] INFO Hardware monitoring started
+[2026-04-11 06:18:33,126] INFO Hardware monitoring stopped after 0.36 seconds
+[2026-04-11 06:18:33,127] WARNING No measurements available
+[2026-04-11 06:18:33,127] INFO Energy consumption: 1.79 Joules (0.36 seconds, 5.00 Watts)
+[2026-04-11 06:18:33,135] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:33,136] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:33,138] INFO Hardware monitoring started
+[2026-04-11 06:18:33,156] WARNING Temperature reading unavailable
+[2026-04-11 06:18:34,800] WARNING Temperature reading unavailable
+[2026-04-11 06:18:36,088] WARNING Temperature reading unavailable
+[2026-04-11 06:18:36,742] INFO Hardware monitoring stopped after 3.60 seconds
+[2026-04-11 06:18:36,742] INFO Collected 3 measurements
+[2026-04-11 06:18:36,743] INFO ------------------------------------------------------------
+[2026-04-11 06:18:36,743] INFO Benchmark Results:
+[2026-04-11 06:18:36,745] INFO   FPS: 194.31
+[2026-04-11 06:18:36,745] INFO   Latency: 9.51 � 23.25 ms
+[2026-04-11 06:18:36,746] INFO   mAP: 0.720
+[2026-04-11 06:18:36,746] INFO   Model Size: 0.15 MB
+[2026-04-11 06:18:36,756] INFO   Energy: 1.79 Joules
+[2026-04-11 06:18:36,756] INFO   CPU: 100.0% | RAM: 9497.1 MB
+[2026-04-11 06:18:36,757] INFO ------------------------------------------------------------
+[2026-04-11 06:18:36,757] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:36,757] INFO ======================================================================
+[2026-04-11 06:18:36,759] INFO EXPERIMENT COMPLETE: squeezenet + quantization
+[2026-04-11 06:18:36,759] INFO   FPS: 194.31 | Latency: 9.51 ms | mAP: 0.720
+[2026-04-11 06:18:36,760] INFO ======================================================================
+[2026-04-11 06:18:36,779] INFO Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:36,779] INFO Intermediate results saved
+                                                                     [A[A
+
+[2026-04-11 06:18:36,791] INFO 
+Experiment 7/12
+[2026-04-11 06:18:36,791] INFO ======================================================================
+[2026-04-11 06:18:36,791] INFO EXPERIMENT: SQUEEZENET + PRUNING
+[2026-04-11 06:18:36,792] INFO ======================================================================
+[2026-04-11 06:18:36,792] INFO [Step 1/4] Loading squeezenet model...
+[2026-04-11 06:18:36,792] INFO Using cached SqueezeNet model
+[2026-04-11 06:18:36,792] INFO [Step 2/4] Applying pruning optimization...
+[2026-04-11 06:18:36,793] INFO Applying structured pruning with 50.0% sparsity
+[2026-04-11 06:18:36,795] ERROR tensorflow-model-optimization not installed
+[2026-04-11 06:18:36,804] INFO Install with: pip install tensorflow-model-optimization
+[2026-04-11 06:18:36,804] WARNING Pruning failed (No module named 'tensorflow_model_optimization'), using baseline
+[2026-04-11 06:18:36,804] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:18:36,805] INFO ============================================================
+[2026-04-11 06:18:36,805] INFO Running full benchmark: squeezenet (pruning)
+[2026-04-11 06:18:36,805] INFO ============================================================
+[2026-04-11 06:18:36,805] INFO [1/5] Measuring FPS...
+[2026-04-11 06:18:36,806] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:18:41,815] INFO FPS: 100.02 (501 frames in 5.01 seconds)
+[2026-04-11 06:18:41,816] INFO [2/5] Measuring latency...
+[2026-04-11 06:18:41,816] INFO Measuring latency over 100 runs...
+squeezenet optimizations:  50%|#####     | 2/4 [00:19<00:19,  9.79s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:  12%|#2        | 12/100 [00:00<00:00, 119.69it/s][A[A
+
+
+Latency Measurement:  24%|##4       | 24/100 [00:00<00:00, 90.92it/s] [A[A
+
+
+Latency Measurement:  34%|###4      | 34/100 [00:00<00:00, 79.16it/s][A[A
+
+
+Latency Measurement:  43%|####3     | 43/100 [00:00<00:00, 74.50it/s][A[A
+
+
+Latency Measurement:  51%|#####1    | 51/100 [00:00<00:00, 66.37it/s][A[A
+
+
+Latency Measurement:  58%|#####8    | 58/100 [00:00<00:00, 64.06it/s][A[A
+
+
+Latency Measurement:  66%|######6   | 66/100 [00:00<00:00, 65.72it/s][A[A
+
+
+Latency Measurement:  75%|#######5  | 75/100 [00:01<00:00, 71.93it/s][A[A
+
+
+Latency Measurement:  85%|########5 | 85/100 [00:01<00:00, 79.29it/s][A[A
+
+
+Latency Measurement:  95%|#########5| 95/100 [00:01<00:00, 64.19it/s][A[A
+
+
+[2026-04-11 06:18:43,210] INFO Latency: 13.85 � 16.97 ms
+[2026-04-11 06:18:43,210] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:43,210] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:43,211] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:43,211] INFO [4/5] Getting model size...
+[2026-04-11 06:18:43,211] WARNING Model file not found: models/squeezenet.h5
+[2026-04-11 06:18:43,211] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:43,212] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:43,212] INFO Hardware monitoring started
+[2026-04-11 06:18:44,013] INFO Hardware monitoring stopped after 0.80 seconds
+[2026-04-11 06:18:44,013] WARNING No measurements available
+[2026-04-11 06:18:44,013] INFO Energy consumption: 4.01 Joules (0.80 seconds, 5.00 Watts)
+[2026-04-11 06:18:44,014] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:44,014] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:44,014] INFO Hardware monitoring started
+[2026-04-11 06:18:44,030] WARNING Temperature reading unavailable
+[2026-04-11 06:18:44,753] WARNING Temperature reading unavailable
+[2026-04-11 06:18:45,046] WARNING Temperature reading unavailable
+[2026-04-11 06:18:45,247] WARNING Temperature reading unavailable
+[2026-04-11 06:18:45,904] WARNING Temperature reading unavailable
+[2026-04-11 06:18:46,275] WARNING Temperature reading unavailable
+[2026-04-11 06:18:46,577] WARNING Temperature reading unavailable
+[2026-04-11 06:18:46,729] WARNING Temperature reading unavailable
+[2026-04-11 06:18:46,907] WARNING Temperature reading unavailable
+[2026-04-11 06:18:47,113] INFO Hardware monitoring stopped after 3.10 seconds
+[2026-04-11 06:18:47,113] INFO Collected 9 measurements
+[2026-04-11 06:18:47,114] INFO ------------------------------------------------------------
+[2026-04-11 06:18:47,131] INFO Benchmark Results:
+[2026-04-11 06:18:47,132] INFO   FPS: 100.02
+[2026-04-11 06:18:47,132] INFO   Latency: 13.85 � 16.97 ms
+[2026-04-11 06:18:47,132] INFO   mAP: 0.720
+[2026-04-11 06:18:47,133] INFO   Model Size: 0.00 MB
+[2026-04-11 06:18:47,133] INFO   Energy: 4.01 Joules
+[2026-04-11 06:18:47,133] INFO   CPU: 100.0% | RAM: 9601.2 MB
+[2026-04-11 06:18:47,148] INFO ------------------------------------------------------------
+[2026-04-11 06:18:47,148] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:47,149] INFO ======================================================================
+[2026-04-11 06:18:47,149] INFO EXPERIMENT COMPLETE: squeezenet + pruning
+[2026-04-11 06:18:47,149] INFO   FPS: 100.02 | Latency: 13.85 ms | mAP: 0.720
+[2026-04-11 06:18:47,150] INFO ======================================================================
+                                                                     [A[A
+
+[2026-04-11 06:18:47,163] INFO 
+Experiment 8/12
+[2026-04-11 06:18:47,164] INFO ======================================================================
+[2026-04-11 06:18:47,164] INFO EXPERIMENT: SQUEEZENET + COMBINED
+[2026-04-11 06:18:47,164] INFO ======================================================================
+[2026-04-11 06:18:47,165] INFO [Step 1/4] Loading squeezenet model...
+[2026-04-11 06:18:47,165] INFO Using cached SqueezeNet model
+[2026-04-11 06:18:47,165] INFO [Step 2/4] Applying combined optimization...
+[2026-04-11 06:18:47,165] INFO Applying combined optimization (pruning + quantization)
+[2026-04-11 06:18:47,166] INFO Step 1: Loading model from models/squeezenet.h5
+[2026-04-11 06:18:47,180] WARNING Combined optimization failed ([Errno 2] Unable to synchronously open file (unable to open file: name = 'models/squeezenet.h5', errno = 2, error message = 'No such file or directory', flags = 0, o_flags = 0)), using baseline
+[2026-04-11 06:18:47,181] INFO [Step 3/4] Running benchmark...
+[2026-04-11 06:18:47,181] INFO ============================================================
+[2026-04-11 06:18:47,181] INFO Running full benchmark: squeezenet (combined)
+[2026-04-11 06:18:47,182] INFO ============================================================
+[2026-04-11 06:18:47,182] INFO [1/5] Measuring FPS...
+[2026-04-11 06:18:47,182] INFO Measuring FPS for 5 seconds...
+[2026-04-11 06:18:52,186] INFO FPS: 67.77 (339 frames in 5.00 seconds)
+[2026-04-11 06:18:52,187] INFO [2/5] Measuring latency...
+[2026-04-11 06:18:52,187] INFO Measuring latency over 100 runs...
+squeezenet optimizations:  75%|#######5  | 3/4 [00:29<00:10, 10.06s/it][A
+
+
+Latency Measurement:   0%|          | 0/100 [00:00<?, ?it/s][A[A
+
+
+Latency Measurement:  14%|#4        | 14/100 [00:00<00:01, 70.59it/s][A[A
+
+
+Latency Measurement:  31%|###1      | 31/100 [00:00<00:00, 111.97it/s][A[A
+
+
+Latency Measurement:  44%|####4     | 44/100 [00:00<00:00, 117.86it/s][A[A
+
+
+Latency Measurement:  57%|#####6    | 57/100 [00:00<00:00, 110.20it/s][A[A
+
+
+Latency Measurement:  69%|######9   | 69/100 [00:00<00:00, 110.26it/s][A[A
+
+
+Latency Measurement:  84%|########4 | 84/100 [00:00<00:00, 122.01it/s][A[A
+
+
+Latency Measurement:  97%|#########7| 97/100 [00:00<00:00, 124.24it/s][A[A
+
+
+[2026-04-11 06:18:53,057] INFO Latency: 8.51 � 11.88 ms
+[2026-04-11 06:18:53,057] INFO [3/5] Calculating mAP...
+[2026-04-11 06:18:53,058] INFO Calculating mAP on 100 samples...
+[2026-04-11 06:18:53,058] INFO Simulated mAP (TFLite model): 0.720
+[2026-04-11 06:18:53,058] INFO [4/5] Getting model size...
+[2026-04-11 06:18:53,059] WARNING Model file not found: models/squeezenet.h5
+[2026-04-11 06:18:53,059] INFO [5/5] Measuring energy consumption...
+[2026-04-11 06:18:53,059] INFO Measuring energy consumption for 50 inferences...
+[2026-04-11 06:18:53,060] INFO Hardware monitoring started
+[2026-04-11 06:18:53,412] INFO Hardware monitoring stopped after 0.35 seconds
+[2026-04-11 06:18:53,413] WARNING No measurements available
+[2026-04-11 06:18:53,413] INFO Energy consumption: 1.77 Joules (0.35 seconds, 5.00 Watts)
+[2026-04-11 06:18:53,414] INFO Monitoring resource usage for 3.0 seconds...
+[2026-04-11 06:18:53,414] INFO Starting monitor loop for 3.0 seconds
+[2026-04-11 06:18:53,414] INFO Hardware monitoring started
+[2026-04-11 06:18:53,430] WARNING Temperature reading unavailable
+[2026-04-11 06:18:54,085] WARNING Temperature reading unavailable
+[2026-04-11 06:18:54,252] WARNING Temperature reading unavailable
+[2026-04-11 06:18:54,431] WARNING Temperature reading unavailable
+[2026-04-11 06:18:54,587] WARNING Temperature reading unavailable
+[2026-04-11 06:18:54,819] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,046] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,192] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,391] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,548] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,721] WARNING Temperature reading unavailable
+[2026-04-11 06:18:55,874] WARNING Temperature reading unavailable
+[2026-04-11 06:18:56,026] WARNING Temperature reading unavailable
+[2026-04-11 06:18:56,192] WARNING Temperature reading unavailable
+[2026-04-11 06:18:56,362] WARNING Temperature reading unavailable
+[2026-04-11 06:18:56,511] INFO Hardware monitoring stopped after 3.10 seconds
+[2026-04-11 06:18:56,512] INFO Collected 15 measurements
+[2026-04-11 06:18:56,513] INFO ------------------------------------------------------------
+[2026-04-11 06:18:56,514] INFO Benchmark Results:
+[2026-04-11 06:18:56,515] INFO   FPS: 67.77
+[2026-04-11 06:18:56,529] INFO   Latency: 8.51 � 11.88 ms
+[2026-04-11 06:18:56,529] INFO   mAP: 0.720
+[2026-04-11 06:18:56,529] INFO   Model Size: 0.00 MB
+[2026-04-11 06:18:56,530] INFO   Energy: 1.77 Joules
+[2026-04-11 06:18:56,530] INFO   CPU: 98.3% | RAM: 9744.1 MB
+[2026-04-11 06:18:56,530] INFO ------------------------------------------------------------
+[2026-04-11 06:18:56,531] INFO [Step 4/4] Collecting hardware metrics...
+[2026-04-11 06:18:56,531] INFO ======================================================================
+[2026-04-11 06:18:56,531] INFO EXPERIMENT COMPLETE: squeezenet + combined
+[2026-04-11 06:18:56,531] INFO   FPS: 67.77 | Latency: 8.51 ms | mAP: 0.720
+[2026-04-11 06:18:56,532] INFO ======================================================================
+                                                                      [A[A
+
+squeezenet optimizations: 100%|##########| 4/4 [00:39<00:00,  9.79s/it][A
+
+                                                                       [A
+Models:  67%|######6   | 2/3 [02:13<01:02, 62.07s/it]
+
+[2026-04-11 06:18:56,545] INFO 
+Experiment 9/12
+[2026-04-11 06:18:56,545] INFO ======================================================================
+[2026-04-11 06:18:56,545] INFO EXPERIMENT: YOLO + BASELINE
+[2026-04-11 06:18:56,546] INFO ======================================================================
+[2026-04-11 06:18:56,546] INFO [Step 1/4] Loading yolo model...
+[2026-04-11 06:18:56,547] INFO Loading YOLOv4-tiny from: models\yolov4-tiny.weights, models\yolov4-tiny.cfg
+[2026-04-11 06:18:56,759] ERROR Failed to load YOLO: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,760] ERROR Experiment failed: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,766] INFO Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:56,772] INFO Intermediate results saved
+yolo optimizations:   0%|          | 0/4 [00:00<?, ?it/s][A
+
+[2026-04-11 06:18:56,773] INFO 
+Experiment 10/12
+[2026-04-11 06:18:56,773] INFO ======================================================================
+[2026-04-11 06:18:56,773] INFO EXPERIMENT: YOLO + QUANTIZATION
+[2026-04-11 06:18:56,779] INFO ======================================================================
+[2026-04-11 06:18:56,779] INFO [Step 1/4] Loading yolo model...
+[2026-04-11 06:18:56,779] INFO Loading YOLOv4-tiny from: models\yolov4-tiny.weights, models\yolov4-tiny.cfg
+[2026-04-11 06:18:56,781] ERROR Failed to load YOLO: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,781] ERROR Experiment failed: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,782] INFO 
+Experiment 11/12
+[2026-04-11 06:18:56,782] INFO ======================================================================
+[2026-04-11 06:18:56,782] INFO EXPERIMENT: YOLO + PRUNING
+[2026-04-11 06:18:56,782] INFO ======================================================================
+[2026-04-11 06:18:56,783] INFO [Step 1/4] Loading yolo model...
+[2026-04-11 06:18:56,783] INFO Loading YOLOv4-tiny from: models\yolov4-tiny.weights, models\yolov4-tiny.cfg
+[2026-04-11 06:18:56,797] ERROR Failed to load YOLO: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,797] ERROR Experiment failed: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,798] INFO 
+Experiment 12/12
+[2026-04-11 06:18:56,798] INFO ======================================================================
+[2026-04-11 06:18:56,798] INFO EXPERIMENT: YOLO + COMBINED
+[2026-04-11 06:18:56,799] INFO ======================================================================
+[2026-04-11 06:18:56,799] INFO [Step 1/4] Loading yolo model...
+[2026-04-11 06:18:56,799] INFO Loading YOLOv4-tiny from: models\yolov4-tiny.weights, models\yolov4-tiny.cfg
+[2026-04-11 06:18:56,805] ERROR Failed to load YOLO: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,806] ERROR Experiment failed: OpenCV(4.13.0) D:\a\opencv-python\opencv-python\opencv\modules\dnn\src\darknet\darknet_io.cpp:991: error: (-213:The function/feature is not implemented) Transpose the weights (except for convolutional) is not implemented in function 'cv::dnn::darknet::ReadDarknetFromWeightsStream'
+
+[2026-04-11 06:18:56,815] INFO Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:56,816] INFO Intermediate results saved
+yolo optimizations:  25%|##5       | 1/4 [00:00<00:00,  4.40it/s][A
+
+                                                                 [A
+Models: 100%|##########| 3/3 [02:14<00:00, 33.85s/it]
+Models: 100%|##########| 3/3 [02:14<00:00, 44.74s/it]
+[2026-04-11 06:18:56,844] INFO Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:56,844] INFO 
+======================================================================
+[2026-04-11 06:18:56,845] INFO EXPERIMENT SUITE COMPLETE
+[2026-04-11 06:18:56,845] INFO ======================================================================
+[2026-04-11 06:18:56,845] INFO 
+Total experiments: 12
+[2026-04-11 06:18:56,846] INFO Total duration: 134.3 seconds (2.2 minutes)
+[2026-04-11 06:18:56,846] INFO 
+Average Performance by Model:
+[2026-04-11 06:18:56,846] INFO ----------------------------------------------------------------------
+[2026-04-11 06:18:56,897] INFO MOBILENET   : FPS= 68.91 | Latency=  18.39 ms | mAP=0.720
+[2026-04-11 06:18:56,900] INFO SQUEEZENET  : FPS=113.62 | Latency=   9.82 ms | mAP=0.720
+[2026-04-11 06:18:56,909] INFO YOLO        : FPS=   nan | Latency=    nan ms | mAP=nan
+[2026-04-11 06:18:56,912] INFO 
+Best FPS: squeezenet + quantization (194.31 FPS)
+[2026-04-11 06:18:56,913] INFO Best mAP:  mobilenet + baseline (0.720)
+[2026-04-11 06:18:56,914] INFO 
+Results saved to: output\csv\experiment_results.csv
+[2026-04-11 06:18:56,915] INFO ======================================================================
+
+======================================================================
+All Experiments Complete!
+======================================================================
+
+Total experiments: 12
+Results saved to: output\csv\experiment_results.csv
+
+Generating visualizations...
+[2026-04-11 06:18:57,033] INFO Loaded 12 experiments from: output\csv\experiment_results.csv
+[2026-04-11 06:18:57,042] INFO ResultsVisualizer initialized, output: output/graphs
+[2026-04-11 06:18:57,044] INFO Generating all graphs...
+[2026-04-11 06:18:57,044] INFO [1/8] FPS Comparison Bar Chart
+[2026-04-11 06:19:04,378] INFO Saved: output\graphs\graph_1_fps_comparison.png
+[2026-04-11 06:19:04,378] INFO [2/8] Latency Comparison Bar Chart
+[2026-04-11 06:19:06,355] INFO Saved: output\graphs\graph_2_latency_comparison.png
+[2026-04-11 06:19:06,358] INFO [3/8] Accuracy vs Speed Scatter Plot
+[2026-04-11 06:19:09,543] INFO Saved: output\graphs\graph_3_accuracy_vs_speed.png
+[2026-04-11 06:19:09,543] INFO [4/8] Energy Consumption Heatmap
+[2026-04-11 06:19:11,802] INFO Saved: output\graphs\graph_4_energy_heatmap.png
+[2026-04-11 06:19:11,803] INFO [5/8] Model Size Comparison
+[2026-04-11 06:19:16,229] INFO Saved: output\graphs\graph_5_model_size_comparison.png
+[2026-04-11 06:19:16,230] INFO [6/8] Multi-dimensional Radar Chart
+[2026-04-11 06:19:21,151] INFO Saved: output\graphs\graph_6_radar_chart.png
+[2026-04-11 06:19:21,152] INFO [7/8] FPS Stability Over Time
+[2026-04-11 06:19:25,880] INFO Saved: output\graphs\graph_7_fps_over_time.png
+[2026-04-11 06:19:25,880] INFO [8/8] Confusion Matrix
+[2026-04-11 06:19:29,960] INFO Saved: output/graphs/graph_8_confusion_matrix.png
+[2026-04-11 06:19:29,961] INFO All graphs generated successfully!
+Generated 8 graphs in output/graphs/
